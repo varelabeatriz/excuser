@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import React, { useState } from 'react';
+import './style.scss'
 
 export function Main() {
 
@@ -13,15 +14,28 @@ export function Main() {
     }
 
     return (
-        <div>
-             <button onClick={() => getData()}>Generate Excuse</button>
+        <div className='container'>
+            <h2>Generate your Excuses</h2>
+            <div className='button-container'>
+                <button onClick={() => getData()}>random</button>
+                <button>family</button>
+                <button>office</button>
+                <button>children</button>
+                <button>college</button>
+                <button>party</button>
+             </div>
             {excuse ? (
-
-                <p>{excuse.data[0].excuse}</p>
+                <div className='image-container'>
+                    <img src="/images/conversation.svg" alt="conversation" />
+                    <p className='excuse'>{excuse.data[0].excuse}</p>
+                </div>
 
             ) : ( 
-                <span>Opa</span>
+                <span></span>
              )}
+
+        
+
         </div>
     )
 }
