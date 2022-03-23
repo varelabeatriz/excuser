@@ -24,9 +24,9 @@ export function Main() {
                 <button onClick={() => getData('children')}>children</button>
                 <button onClick={() => getData('college')}>college</button>
                 <button onClick={() => getData('party')}>party</button>
-             </div>
+            </div>
 
-             <div className='image-container'>
+            <div className='image-container'>
                     <img src="/images/conversation.svg" alt="conversation" />
 
                     {excuse ? (
@@ -35,7 +35,7 @@ export function Main() {
                         <p>I would love to go, but...</p>
                     )}
 
-                </div>
+            </div>
         </div>
     )
 }
