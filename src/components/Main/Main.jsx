@@ -1,13 +1,10 @@
 import Axios from 'axios';
 import React, { useState } from 'react';
-import './style.scss'
 
 export function Main() {
 
-    const [query, setQuery] = useState({
-        value: 'family'
-    });
-    const [excuse, setExcuse] = useState();
+    const [query, setQuery] = useState('');
+    const [excuse, setExcuse] = useState('');
 
     const url = `https://excuser.herokuapp.com/v1/excuse/${query}`;
 
@@ -28,16 +25,17 @@ export function Main() {
                 <button onClick={() => getData('college')}>college</button>
                 <button onClick={() => getData('party')}>party</button>
              </div>
-            {excuse ? (
-                <div className='image-container'>
+
+             <div className='image-container'>
                     <img src="/images/conversation.svg" alt="conversation" />
-                    <p className='excuse'>{(excuse.data[0].excuse)}</p> )
+
+                    {excuse ? (
+                        <p className='excuse'>{(excuse.data[0].excuse)}</p>
+                    ) : ( 
+                        <p>I would love to go, but...</p>
+                    )}
+
                 </div>
-
-            ) : ( 
-                <span>hi</span>
-             )}
-
         </div>
     )
 }
